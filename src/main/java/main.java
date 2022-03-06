@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import utils.TensorVision.Ball;
 import utils.TensorVision.Box;
@@ -22,8 +23,12 @@ class SampleApp {
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of("example1.json");
         detectionsEntry = Files.readString(fileName);
-        System.out.println(detectionsEntry);
-        System.out.println(getClosestBall(false));
+
+        final ObjectMapper objectMapper = new ObjectMapper();
+        Ball[] balls = objectMapper.readValue(detectionsEntry, Ball[].class);
+
+        System.out.println(balls[1].color);
+        // System.out.println(getClosestBall(false));
     }
 
     private static void readBallData() {
@@ -41,8 +46,7 @@ class SampleApp {
         }
     }
 
-    public static Ball getClosestBall(boolean red)
-    {
+    public static Ball getClosestBall(boolean red) {
         String color;
 
         if (red) {
@@ -51,20 +55,20 @@ class SampleApp {
             color = new String("blue");
         }
 
-        readBallData(); //get the list of all balls in our field of view
+        readBallData(); // get the list of all balls in our field of view
 
         int closestBallIndex = 0;
 
-        //delete balls from list that aren't of our color
+        // delete balls from list that aren't of our color
         for (int i = 0; i < balls.size(); i++) {
             if (balls.get(i).color != color) {
                 balls.remove(i);
-                i--; //we have deleted an element, so our index must shrink by 1
+                i--; // we have deleted an element, so our index must shrink by 1
             }
         }
 
-        //get index of ball with largest box
-        for (int i = 0; i < balls.size(); i++) { 
+        // get index of ball with largest box
+        for (int i = 0; i < balls.size(); i++) {
             Box currentBox = balls.get(i).box;
 
             Box largestBox = balls.get(closestBallIndex).box;
