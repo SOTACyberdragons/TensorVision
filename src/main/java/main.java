@@ -35,7 +35,7 @@ class SampleApp {
         return objectMapper.readValue(detections, Ball[].class);
     }
 
-    // Do we have a target, if not, move on ...
+    // Do we have a target? If not, move on ...
     public static boolean hasTargets(Ball[] ballList, String teamColor) {
         boolean foundTarget = false;
         for (int i = 0; i < ballList.length; i++) {
