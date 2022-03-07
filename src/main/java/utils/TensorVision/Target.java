@@ -2,7 +2,7 @@ package utils.TensorVision;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Ball {
+public class Target {
     @JsonProperty("label")
     public String color;
     @JsonProperty("box")

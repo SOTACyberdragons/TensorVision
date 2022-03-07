@@ -6,11 +6,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import utils.TensorVision.Ball;
+import utils.TensorVision.Target;
 
 class SampleApp {
 
-    private static Ball[] balls;
+    private static Target[] targets;
     private static String detectionsEntry;
     private static String teamColor = "red";
 
@@ -18,29 +18,29 @@ class SampleApp {
         Path fileName = Path.of("example1.json");
         detectionsEntry = Files.readString(fileName);
 
-        balls = parseTargets(detectionsEntry);
+        targets = parseTargets(detectionsEntry);
 
-        if (hasTargets(balls, teamColor)) {
+        if (hasTargets(targets, teamColor)) {
             System.out.println("Found target!");
         } else {
             System.out.println("Not targets found!");
         }
     }
 
-    public static Ball[] parseTargets(String payload) throws JsonParseException, JsonMappingException, IOException {
-        // balls.clear(); // refresh balls
+    public static Target[] parseTargets(String payload) throws JsonParseException, JsonMappingException, IOException {
+        // targets.clear(); // refresh targets
         String detections = payload;
 
         final ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(detections, Ball[].class);
+        return objectMapper.readValue(detections, Target[].class);
     }
 
     // Do we have a target? If not, move on ...
-    public static boolean hasTargets(Ball[] ballList, String teamColor) {
+    public static boolean hasTargets(Target[] targetList, String teamColor) {
         boolean foundTarget = false;
-        for (int i = 0; i < ballList.length; i++) {
-            System.out.println(ballList[i].color);
-            if (ballList[i].color.equals(teamColor)) {
+        for (int i = 0; i < targetList.length; i++) {
+            System.out.println(targetList[i].color);
+            if (targetList[i].color.equals(teamColor)) {
                 foundTarget = true;
             }
         }
@@ -48,7 +48,7 @@ class SampleApp {
     }
 
     // Get the array index of the best target.
-    public static int getBestTarget(Ball[] ballList, String teamColor) {
+    public static int getBestTarget(Target[] targetList, String teamColor) {
         int bestTarget = 0;
         return bestTarget;
     }
