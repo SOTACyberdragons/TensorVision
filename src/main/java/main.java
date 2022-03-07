@@ -54,13 +54,13 @@ class SampleApp {
     }
 
     // Used for setting strength of the controller rumble. The closer, the stronger
-    public static int getBestTargetDistance() {
+    public static int getTargetDistance() {
         int targetDistance = 0;
         return targetDistance;
     }
 
     // Get the Yaw of the best target to turn the robot
-    public static double getBestTargetYaw() {
+    public static double getTargetYaw() {
         int targetYaw = 0;
         return targetYaw;
     }
