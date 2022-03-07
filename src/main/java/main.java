@@ -53,7 +53,7 @@ class SampleApp {
         return bestTarget;
     }
 
-    // Used for setting strength controller rumble
+    // Used for setting strength of the controller rumble. The closer, the stronger
     public static int getBestTargetDistance() {
         int targetDistance = 0;
         return targetDistance;
