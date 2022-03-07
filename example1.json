@@ -2,41 +2,21 @@
     {
         "label": "red",
         "box": {
-            "ymin": 221,
-            "xmin": 370,
-            "ymax": 354,
-            "xmax": 505
+            "ymin": 216,
+            "xmin": 369,
+            "ymax": 359,
+            "xmax": 513
         },
-        "confidence": 0.94140625
+        "confidence": 0.96875
     },
     {
         "label": "blue",
         "box": {
-            "ymin": 214,
-            "xmin": 84,
+            "ymin": 208,
+            "xmin": 90,
             "ymax": 330,
-            "xmax": 223
+            "xmax": 225
         },
-        "confidence": 0.94140625
-    },
-    {
-        "label": "blue",
-        "box": {
-            "ymin": 154,
-            "xmin": 255,
-            "ymax": 242,
-            "xmax": 348
-        },
-        "confidence": 0.6640625
-    },
-    {
-        "label": "red",
-        "box": {
-            "ymin": 167,
-            "xmin": 169,
-            "ymax": 247,
-            "xmax": 262
-        },
-        "confidence": 0.6640625
+        "confidence": 0.88671875
     }
 ]
