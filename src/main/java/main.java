@@ -39,7 +39,6 @@ class SampleApp {
     public static boolean hasTargets(Target[] targetList, String teamColor) {
         boolean foundTarget = false;
         for (int i = 0; i < targetList.length; i++) {
-            System.out.println(targetList[i].color);
             if (targetList[i].color.equals(teamColor)) {
                 foundTarget = true;
             }
